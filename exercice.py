@@ -23,10 +23,10 @@ def to_radians(angle_degs: float, angle_mins: float, angle_secs: float) -> float
 
 
 def to_degrees(angle_rads: float) -> tuple:
-    deg_float = angle_rads * 180 / math.pi
+    deg_float = math.degrees(angle_rads)
     deg = int(deg_float)
     min = int((deg_float - deg) * 60)
-    sec = (deg_float - deg - min / 60) * 3600
+    sec = (deg_float - deg - (min / 60)) * 3600
     return deg, min, sec
 
 
@@ -47,7 +47,7 @@ def main() -> None:
 
     print(f"Conversion de 100 degres, 2 minutes et 45 secondes en radians: {to_radians(180, 2, 45)}")
     
-    degrees, minutes, seconds = to_degrees(1.0)
+    degrees, minutes, seconds = to_degrees(2.0)
     print(f"Conversion de 1 radian en degres: {degrees} degres, {minutes} minutes et {seconds} secondes")
 
     print(f"Conversion de 100 Celsius en Farenheit: {to_farenheit(100.0)}")
